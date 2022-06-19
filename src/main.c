@@ -48,7 +48,6 @@ int real_main()
 
             // hidden features
             _C(kCapM, do_mines);
-            _C(kCapX, do_fake_testmode);
             _C(kCapY, do_toggle_testmodebar);
         case kCapV:
             os_PutStrFull("AACONSLE ");

@@ -1,3 +1,4 @@
+#include "defs.h"
 #include "main.h"
 #include "print.h"
 #include "stats.h"
@@ -49,6 +50,11 @@ int real_main()
             _C(kCapM, do_mines);
             _C(kCapX, do_fake_testmode);
             _C(kCapY, do_toggle_testmodebar);
+        case kCapV:
+            os_PutStrFull("AACONSLE ");
+            os_PutStrFull(aaconsle_version);
+            os_GetKey();
+            break;
 
             // developer features
             _C(kCapF, do_flags);

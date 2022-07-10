@@ -9,7 +9,6 @@
 #include "roll.h"
 #include "pwdctl.h"
 #include "help.h"
-#include "mines.h"
 #include "appvar.h"
 #include "flags.h"
 #include "testmode.h"
@@ -47,7 +46,6 @@ int real_main()
             _C(kCapA, do_appvars);
 
             // hidden features
-            _C(kCapM, do_mines);
             _C(kCapY, do_toggle_testmodebar);
         case kCapV:
             os_PutStrFull("AACONSLE ");

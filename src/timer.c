@@ -26,13 +26,13 @@ static void printint(int i, int minlen)
 void print_time(uint32_t millis, uint8_t row, uint8_t col)
 {
     os_SetCursorPos(row, col);
-    printint(millis / 100 / 60 / 60, 2);
+    printint(millis / 10 / 60 / 60, 2);
     os_PutStrLine(":");
-    printint(millis / 100 / 60 % 60, 2);
+    printint(millis / 10 / 60 % 60, 2);
     os_PutStrLine(":");
-    printint(millis / 100 % 60, 2);
+    printint(millis / 10 % 60, 2);
     os_PutStrLine(".");
-    printint(millis % 100, 2);
+    printint(millis % 10, 1);
 }
 
 uint32_t time_adddigit(uint32_t secs, uint8_t val)
@@ -137,7 +137,7 @@ void do_timer()
             timer_SetReload(1, tim * 32768);
             break;
         }
-        print_time(timer_Get(1) * 100 / 32768, 3, 0);
+        print_time(timer_Get(1) * 10 / 32768, 3, 0);
         if (timer_ChkInterrupt(1, TIMER_RELOADED))
             timer_Disable(1), timer_AckInterrupt(1, TIMER_RELOADED), started = 0, timer_Set(1, timer_GetReload(1));
     }
